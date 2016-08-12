@@ -101,3 +101,13 @@ exports.search = function search(query){
     q : 'text:' + query
   });
 }
+
+exports.Message = require("./app/models/message");
+
+indexExists().then(function (exists) {
+  if (exists) {
+    return deleteIndex();
+  }
+}).then(function () {
+  return initIndex()
+});

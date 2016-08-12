@@ -16,9 +16,11 @@ router.get('/search/:input', function (req, res, next) {
     });
 });
 
-/* POST document to be indexed */
-// router.post('/', function (req, res, next) {
-//     elastic.addDocument(req.body).then(function (result) { res.json(result) });
-// });
+module.exports = function (app) {
+  app.use('/documents', router);
+};
 
-module.exports = router;
+
+
+
+
